@@ -5,7 +5,7 @@ import * as admin from "firebase-admin";
 
 export async function POST(request: NextRequest) {
     try {
-        console.log("Sign-Up API ROute");
+        console.log("Sign-Up API Route");
 
         const { userName, email, password } = await request.json();
 

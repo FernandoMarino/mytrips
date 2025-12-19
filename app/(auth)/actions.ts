@@ -47,7 +47,12 @@ export async function handleSignUp(
 
     const { userName, email, password } = validatedResults.data;
 
-    const res = await fetch('/api/sign-up', {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+
+    console.log(`baseUrl: ${baseUrl}`);
+
+
+    const res = await fetch(`${baseUrl}/api/sign-up`, {
         method: "POST",
         body: JSON.stringify({ userName, email, password }),
         headers: { "Content-Type": "application/json" },
@@ -96,8 +101,13 @@ export async function handleLogin(prevState: LoginState, formData: FormData) {
 
     const { email, password } = validatedResults.data;
 
+// Cria base URL para chamar rota login, sem chamar localhost
+
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+
+    console.log(`baseUrl: ${baseUrl}`);
     // Call the login API route to authenticate with Firebase
-    const res = await fetch('/api/sign-up', {
+    const res = await fetch(`${baseUrl}/api/login`, {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: { "Content-Type": "application/json" },
