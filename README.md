@@ -2,6 +2,11 @@
 
 Projeto desenvolvido por Fernando Marino dos Santos para a disciplina de Frontend Jamstack com Next.JS
 
+* Link Github: https://github.com/FernandoMarino/mytrips
+* Link Vercel: https://mytrips-travel-logbook.vercel.app/
+
+![alt text](image.png)
+
 Etapas de desenvolvimento:
 
 * Criação rota principal
@@ -39,9 +44,10 @@ Etapas de desenvolvimento:
     - Buscar na API user trips e renderizar o retorno na rota protegida `/my-trips`
 
 
-### Implementações pendentes
-- Consulta com graphQL
+### Funcionalidades não implementadas
 - Editar e deletar Trips
 - Funcionalidade para o usuário buscar e filtrar Trips utilizando campos específicos
 - Compartilhamento de trip com outros usuários
 - Criação de eventos nas viagens
+- Blog para comentário
+- chat live entre usuários
