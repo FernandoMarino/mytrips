@@ -103,7 +103,7 @@ export async function handleLogin(prevState: LoginState, formData: FormData) {
 
 // Cria base URL para chamar rota login, sem chamar localhost
 
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
     console.log(`baseUrl: ${baseUrl}`);
     // Call the login API route to authenticate with Firebase

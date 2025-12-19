@@ -21,6 +21,7 @@ export async function POST(request: NextRequest) {
             email: user.email,
             createdAt: admin.firestore.FieldValue.serverTimestamp(),
         });
+        
         return NextResponse.json({ success: true, uid: user.uid });
     } catch (error: unknown) {
         if (error instanceof Error) {

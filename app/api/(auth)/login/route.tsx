@@ -16,7 +16,6 @@ export async function POST(request: NextRequest) {
             headers: { "Content-Type": "application/json" },
         });
         const data = await res.json();
-        console.log("resposta da API AuthURL:", data);
 
         if (!res.ok) {
             return NextResponse.json(
@@ -25,7 +24,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Return idToken to server action, which will create the session
+        // Retorna o idToken para o server action ou para quem chamar a funcao POST da API
         return NextResponse.json({
             success: true,
             idToken: data.idToken,
