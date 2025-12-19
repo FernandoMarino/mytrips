@@ -47,7 +47,7 @@ export async function handleSignUp(
 
     const { userName, email, password } = validatedResults.data;
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/sign-up`, {
+    const res = await fetch('/api/sign-up', {
         method: "POST",
         body: JSON.stringify({ userName, email, password }),
         headers: { "Content-Type": "application/json" },
@@ -97,7 +97,7 @@ export async function handleLogin(prevState: LoginState, formData: FormData) {
     const { email, password } = validatedResults.data;
 
     // Call the login API route to authenticate with Firebase
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/login`, {
+    const res = await fetch('/api/sign-up', {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: { "Content-Type": "application/json" },
