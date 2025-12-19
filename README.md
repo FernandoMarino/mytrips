@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Seja bem vindo ao myTripsPlan
 
-## Getting Started
+Projeto desenvolvido por Fernando Marino dos Santos para a disciplina de Frontend Jamstack com Next.JS
 
-First, run the development server:
+Etapas de desenvolvimento:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* Criação rota principal
+* Criação de rotas dinâmicas `/my-trips/[tripId]`
+* Criação de banco de dados NoSQL (Firestore)
+* Autenticação 
+    * criação de usuário  -> Cria novo documento em "users"  
+    * autenticação (login) -> 
+* Implementação de criação de viagens pelo usuário -> REsulta em um novo documento na coleção "trips"
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+- **Autenticação**
+  - Usuário criado com formulário validado - ShadCN (Form) + Zod (Form Validation) + Server Action (handleSignUp) + API Routes (createUser + persistência em /users/)
+  - Login utilizando Firebase Authentication & session cookies
+  - Rotas protegidas via proxy (`/my-trips`)
 
-To learn more about Next.js, take a look at the following resources:
+- **UI/UX**
+  - Navbar responsiva mostrando o nome e email do usuário após autenticado
+  - Forms de Login/signup implementados com validaçao em cada campo utilizando zod e com aria-invalid ativo para acessibilidade
+  - Botão de Logout no navbar
+  - Implementado suporte para alterar o tema da página
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **API Routes**
+  - `/api/sign-up` - Criação de novo user no Firebase Authentication e persistência no Firestore
+  - `/api/login` - Autenticação com Firebase e retorno de idToken para criação de cookie de sessãono server actions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Server Actions**
+  - Camada de Server actions implementada para: 
+    - Capturar dados dos formulários
+    - Chamar zod para validar formulários
+    - Chamar API Routes (Server Side) 
+    - lidar com criação, verificação e remoção de cookies de sessão
+    - Buscar na API user trips e renderizar o retorno na rota protegida `/my-trips`
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Implementações pendentes
+- Consulta com graphQL
+- Editar e deletar Trips
+- Funcionalidade para o usuário buscar e filtrar Trips utilizando campos específicos
+- Compartilhamento de trip com outros usuários
+- Criação de eventos nas viagens
